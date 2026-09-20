@@ -17,7 +17,7 @@ def train_model():
     df = df.drop_duplicates()
 
     X = df.drop(columns=["placement_status"])
-    y = df["placement_status"].astype(int)
+    y = df["placement_status"].map({"Not Placed": 0, "Placed": 1})
 
     categorical_features = [
         "gender", "branch", "college_tier", "volunteer_experience"
